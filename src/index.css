@@ -1,0 +1,128 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+@theme {
+  --color-primary: #6C63FF;
+  --color-secondary: #A78BFA;
+  
+  /* Override default colors to avoid oklch which causes html2canvas to fail */
+  --color-blue-500: #3b82f6;
+  --color-purple-500: #a855f7;
+  --color-emerald-500: #10b981;
+  --color-orange-500: #f97316;
+  --color-red-500: #ef4444;
+  --color-pink-500: #ec4899;
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+  --color-slate-950: #020617;
+}
+
+@utility perspective-1000 {
+  perspective: 1000px;
+}
+
+@utility preserve-3d {
+  transform-style: preserve-3d;
+}
+
+@utility backface-hidden {
+  backface-visibility: hidden;
+}
+
+@utility rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+@utility flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@layer base {
+  body {
+    @apply bg-[#060c1a] selection:bg-[#6C63FF]/30;
+  }
+}
+
+.glass-card {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] hover:border-white/20 transition-all duration-300;
+}
+
+.glass-input {
+  @apply bg-white/5 backdrop-blur-md border border-white/10 focus:border-[#6C63FF]/50 focus:ring-2 focus:ring-[#6C63FF]/20 outline-none transition-all duration-300;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-[#6C63FF] via-[#A78BFA] to-[#D8B4FE] bg-clip-text text-transparent animate-gradient-x;
+}
+
+.modern-button {
+  @apply bg-gradient-to-br from-[#6C63FF] to-[#4F46E5] hover:from-[#4F46E5] hover:to-[#4338CA] text-white font-bold rounded-2xl shadow-lg shadow-[#6C63FF]/20 hover:shadow-[#6C63FF]/40 hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all duration-300;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 15px rgba(108, 99, 255, 0.2); }
+  50% { box-shadow: 0 0 30px rgba(108, 99, 255, 0.5); }
+}
+
+.glow-effect {
+  animation: pulse-glow 3s infinite;
+}
+
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@utility animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 15s ease infinite;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(108, 99, 255, 0.3);
+}
+
+.hover-lift {
+  @apply hover:-translate-y-1 hover:shadow-xl hover:shadow-[#6C63FF]/10 transition-all duration-300;
+}
+
+.stagger-fade-in > * {
+  @apply animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both;
+}

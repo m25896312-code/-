@@ -1,0 +1,7 @@
+{
+  "name": "Newton AI - نيوتن AI",
+  "description": "المساعد الذكي لطلاب الثانوية العامة 2026 - شرح، بنك أسئلة، خرائط ذهنية، وامتحانات.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
